@@ -1,0 +1,137 @@
+INDEX.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <div id="display">0</div>
+    <div class="buttons">
+      <button class="btn clear" onclick="clearDisplay()">AC</button>
+      <button class="btn" onclick="appendValue('(')">(</button>
+      <button class="btn" onclick="appendValue(')')">)</button>
+      <button class="btn operator" onclick="appendValue('%')">%</button>
+      <button class="btn number" onclick="appendValue('7')">7</button>
+      <button class="btn number" onclick="appendValue('8')">8</button>
+      <button class="btn number" onclick="appendValue('9')">9</button>
+      <button class="btn operator" onclick="appendValue('/')">÷</button>
+      <button class="btn number" onclick="appendValue('4')">4</button>
+      <button class="btn number" onclick="appendValue('5')">5</button>
+      <button class="btn number" onclick="appendValue('6')">6</button>
+      <button class="btn operator" onclick="appendValue('*')">×</button>
+      <button class="btn number" onclick="appendValue('1')">1</button>
+      <button class="btn number" onclick="appendValue('2')">2</button>
+      <button class="btn number" onclick="appendValue('3')">3</button>
+      <button class="btn operator" onclick="appendValue('-')">−</button>
+      <button class="btn number" onclick="appendValue('0')">0</button>
+      <button class="btn number" onclick="appendValue('.')">.</button>
+      <button class="btn delete" onclick="deleteLast()">⌫</button>
+      <button class="btn operator" onclick="appendValue('+')">+</button>
+      <button class="btn equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+-----------------------------------------------------------------------------------
+STYLES.CSS
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000; 
+  }  
+  .calculator {
+    width: 320px;
+    background: #121212; 
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  }  
+  #display {
+    font-size: 2.5rem;
+    padding: 20px;
+    text-align: right;
+    color: #fff;
+    background: #1e1e1e;
+    border-bottom: 2px solid #333;
+  }  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #333;
+  }  
+  .btn {
+    font-size: 1.5rem;
+    padding: 20px;
+    background: #222;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-shadow: 0 0 10px white; 
+    transition: background 0.3s, box-shadow 0.3s;
+  }  
+  .btn:hover {
+    background: #444;
+    box-shadow: 0 0 10px white; 
+  }  
+  .number {
+    color: #fff;
+    text-shadow: none;
+  }  
+  .operator, .clear {
+    color: #00bcd4;
+    text-shadow: 0 0 10px white; 
+  }  
+  .equal {
+    grid-column: span 4;
+    background: #00bcd4;
+    color: #fff;
+    text-shadow: none;
+    box-shadow: 0 0 15px white; 
+  }  
+  .equal:hover {
+    background: #0097a7;
+  }  
+  .delete {
+    color: #ff5252;
+    text-shadow: none;
+  }  
+  .delete:hover {
+    color: #ff1744;
+  }
+------------------------------------------------------------------------------
+SCRIPT.JS
+
+let display = document.getElementById("display");
+function clearDisplay() {
+  display.textContent = "0";
+}
+function appendValue(value) {
+  if (display.textContent === "0") {
+    display.textContent = value;
+  } else {
+    display.textContent += value;
+  }
+}
+function deleteLast() {
+  display.textContent = display.textContent.slice(0, -1) || "0";
+}
+function calculate() {
+  try {
+    const result = eval(display.textContent.replace("×", "*").replace("÷", "/"));
+    display.textContent = result;
+  } catch (error) {
+    display.textContent = "Error";
+  }
+}
