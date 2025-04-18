@@ -1,0 +1,225 @@
+INDEX.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">👨‍💻</div>
+    <nav>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact" class="contact-btn">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-img">
+      <img src="dp.png" alt="Profile Picture" />
+    </div>
+    <div class="hero-text">
+      <h4>HELLO, I'M</h4>
+      <h1>Suyash Raj Dwivedi</h1>
+      <h2><span>Web Developer</span></h2>
+      <p>
+        I'm passionate about building modern, responsive, and dynamic websites.
+      </p>
+      <a href="#" class="btn">Download CV</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I am an aspiring web developer passionate about building user-friendly and responsive websites. With a strong foundation in HTML, CSS, and JavaScript, I’m continuously learning new technologies to stay updated. I enjoy turning ideas into reality through clean and efficient code.</p>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-item">HTML</div>
+      <div class="skill-item">CSS</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">React</div>
+      <div class="skill-item">Node.js</div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Services</h2>
+    <p>I offer website design, portfolio development, and responsive landing page creation.</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Email: srd@gmail.com | Phone: 92526477xx</p>
+  </section>
+
+</body>
+</html>
+------------------------------------------------------------------
+STYLES.CSS
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #0d0d0d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .contact-btn {
+    background-color: #00ffcc;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 10%;
+  }
+  
+  .hero-img img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .hero-text h4 {
+    color: #00ffcc;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text h1 {
+    font-size: 48px;
+  }
+  
+  .hero-text h2 {
+    font-size: 32px;
+    color: #00ffcc;
+  }
+  
+  .hero-text p {
+    margin: 15px 0;
+    max-width: 500px;
+  }
+
+  .skill-item {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    background-color: #111;
+    border: 2px solid transparent;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .skill-item:hover {
+    background-color: #00ffcc20;
+    border-color: #00ffcc;
+    box-shadow: 0 0 15px #00ffcc70;
+    color: #00ffcc;
+  }  
+
+  nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00ffcc;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }  
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #00ffcc;
+    color: #000;
+  }
+  
+  .section {
+    padding: 80px 10%;
+    text-align: center;
+  }
+  
+  .section h2 {
+    color: #00ffcc;
+    margin-bottom: 20px;
+  }
+  
+  .section ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  
+  .section li {
+    border: 1px solid #00ffcc;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
